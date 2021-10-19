@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return "Hola";
+});
+
+Route::get('/usuarios', function() {
+    return 'Usuarios';
+});
+
+Route::get('/usuarios/{id}', function($id) {
+    return "Mostrando detalles del usuario: $id";
+})->where('id', '\dw+');
+
+Route::get('/usuarios/nuevo', function() {
+    return "Crear usuario";
+});
+
+Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null) {
+    if($nickname) {
+        return "Bienbenido {$name}, tu apodo es {$nickname}";
+    }
+    return "Bienbenido {$name}, no tienes apodo";
 });
