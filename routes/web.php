@@ -23,7 +23,7 @@ Route::get('/usuarios', function() {
 
 Route::get('/usuarios/{id}', function($id) {
     return "Mostrando detalles del usuario: $id";
-})->where('id', '\dw+');
+})->where('id', '[0-9]+');
 
 Route::get('/usuarios/nuevo', function() {
     return "Crear usuario";
@@ -33,5 +33,5 @@ Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null) {
     if($nickname) {
         return "Bienbenido {$name}, tu apodo es {$nickname}";
     }
-    return "Bienbenido {$name}, no tienes apodo";
+    return "Bienbenido {$name}";
 });
