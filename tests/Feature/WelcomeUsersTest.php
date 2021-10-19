@@ -13,7 +13,7 @@ class WelcomeUsersTest extends TestCase
     {
         $this->get('/saludo/Miguel/SanderK')
             ->assertStatus(200)
-            ->assertSee('Bienbenido Miguel, tu apodo es SanderK');
+            ->assertSee('Bienvenido Miguel, tu apodo es SanderK');
     }
 
     /** @test */
@@ -21,6 +21,6 @@ class WelcomeUsersTest extends TestCase
     {
         $this->get('/saludo/Miguel')
         ->assertStatus(200)
-        ->assertSee('Bienbenido Miguel');
+        ->assertSee('Bienvenido Miguel');
     }
 }
