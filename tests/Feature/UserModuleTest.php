@@ -24,6 +24,15 @@ class UserModuleTest extends TestCase
 
     /** @test */
 
+    function it_shows_a_default_message_if_user_list_is_empty()
+    {
+        $this->get('/usuarios?empty')
+            ->assertStatus(200)
+            ->assertSee('No hay usuarios registrados.');
+    }
+
+    /** @test */
+
     function it_loads_the_user_details_page()
     {
         $this->get('/usuarios/5')

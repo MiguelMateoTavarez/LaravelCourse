@@ -8,13 +8,18 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = [
-            'Miguel',
-            'Petalo',
-            'Ana',
-            'Carlos',
-            'Eris',
-        ];
+        if (request()->has('empty')) {
+            $users = [];
+        } else {
+            $users = [
+                'Miguel',
+                'Petalo',
+                'Ana',
+                'Carlos',
+                'Eris',
+            ];
+        }
+
 
         return view('users')
             ->with('users', $users)

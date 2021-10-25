@@ -10,12 +10,17 @@
 
 <body>
     <h1>{{ $title }}</h1>
-
+    @if(!empty($users))
     <ul>
-        @foreach($users as $user)
-            <li>{{ $user }}</li>
-        @endforeach
+        @forelse($users as $user)
+        <li>{{ $user }}</li>
+        @empty
+        <li>No hay usuarios registrados.</li>
+        @endforelse
     </ul>
+    @else
+    <p>No hay usuarios registrados.</p>
+    @endif
 </body>
 
 </html>
