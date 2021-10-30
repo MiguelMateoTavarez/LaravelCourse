@@ -13,11 +13,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $professionId = DB::table('professions')
+            ->select('id')
+            ->where(['title' => 'Desarrollador back-end'])
+            ->value('id');
+
         DB::table('users')->insert([
             'name' => 'Miguel Mateo',
             'email' => 'miguel@mateo.com',
             'password' => Hash::make('laravel'),
-
+            'profession_id' => $professionId
         ]);
     }
 }

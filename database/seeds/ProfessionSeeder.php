@@ -13,13 +13,13 @@ class ProfessionSeeder extends Seeder
     public function run()
     {
         DB::table('professions')->insert([
-            'title' => 'Desarrollsdor back-end',
+            'title' => 'Desarrollador back-end',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         DB::table('professions')->insert([
-            'title' => 'Desarrollsdor front-end',
+            'title' => 'Desarrollador front-end',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
