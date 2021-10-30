@@ -1,5 +1,7 @@
 <?php
 
+use App\Profession;
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,12 +15,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $professionId = DB::table('professions')
-            ->select('id')
-            ->where(['title' => 'Desarrollador back-end'])
-            ->value('id');
 
-        DB::table('users')->insert([
+        $professionId = Profession::where('title', 'Desarrollador back-end')
+                        ->value('id');
+        
+        User::create([
             'name' => 'Miguel Mateo',
             'email' => 'miguel@mateo.com',
             'password' => Hash::make('laravel'),
